@@ -1,0 +1,13 @@
+__pycache__/
+*.py[cod]
+.venv/
+.local-deps/
+.test-output/
+outputs/
+dist/
+~$*
+.DS_Store
+Thumbs.db
+.env
+.env.*
+!.env.example

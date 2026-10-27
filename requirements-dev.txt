@@ -1,0 +1,3 @@
+# Optional development dependency for full YAML validation.
+# The shipped planning and inspection scripts and unit tests need only Python 3.10+.
+PyYAML>=6.0,<7

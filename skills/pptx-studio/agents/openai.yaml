@@ -1,0 +1,4 @@
+interface:
+  display_name: "PPTX Studio"
+  short_description: "Choose focused directions to create or improve PowerPoint slides"
+  default_prompt: "Use $pptx-studio to help me choose a direction and create or improve my PowerPoint presentation."

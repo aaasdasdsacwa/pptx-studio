@@ -1,0 +1,13 @@
+{
+  "schema_version": 1,
+  "operations": ["create", "edit", "audit"],
+  "directions": [
+    {"id":"content","label_zh":"内容与逻辑","label_en":"Content and storyline","guide":"content.md","focus":"Clarify claims, evidence, audience, and presentation sequence."},
+    {"id":"layout","label_zh":"版式与构图","label_en":"Layout and relationships","guide":"layout.md","focus":"Express sequence, comparison, hierarchy, and relationships spatially."},
+    {"id":"icons","label_zh":"图标增强","label_en":"Icons and semantic diagrams","guide":"icons.md","focus":"Use editable, consistent icons with accurate contextual meanings."},
+    {"id":"images","label_zh":"图片与配图","label_en":"Images and screenshots","guide":"images.md","focus":"Add relevant photos, illustrations, or evidence screenshots with traceable sources."},
+    {"id":"charts","label_zh":"数据图表","label_en":"Charts and data","guide":"charts.md","focus":"Present real quantities and structured comparisons with correct units and context."},
+    {"id":"style","label_zh":"视觉风格","label_en":"Visual style","guide":"style.md","focus":"Apply a coherent visual system or follow a supplied reference."},
+    {"id":"repair","label_zh":"问题修复","label_en":"Targeted repairs","guide":"repair.md","focus":"Diagnose and repair overlap, overflow, broken references, or formatting faults."}
+  ]
+}
