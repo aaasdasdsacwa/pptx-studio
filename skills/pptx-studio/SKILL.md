@@ -1,22 +1,38 @@
 ---
 name: pptx-studio
-description: Create, improve, or inspect PowerPoint PPTX presentations by the user's chosen directions, including content, layout, icons, images, charts, visual style, and targeted repairs. Use when a user wants to make slides, improve an existing deck, choose an improvement direction, or check presentation problems.
+description: Create complete editable PowerPoint presentations from topics, outlines, documents, data or existing decks; adapt storyline, visuals and delivery to the audience and purpose. Also revise, restyle or audit selected slides. Use for business, education, research, sales, public talks, creative presentations and other PPTX tasks.
 license: MIT
 ---
 
 # PPTX Studio
 
-Turn the user's chosen improvement directions into an editable presentation. Communicate in the user's language. Keep the skill portable: use the presentation tools available in the current environment rather than requiring a particular connector, model, or paid service.
+Produce a presentation suited to the user's purpose, audience, material and delivery setting. Handle complete creation, transformation of source material, revision and read-only review. Communicate in the user's language. Use the presentation tools available in the current environment rather than requiring a particular connector, model or paid service.
+
+Prior examples demonstrate individual capabilities. They do not establish the default topic, industry, visual style, outline or slide count for a new request. Icons are one optional visual tool; a deck may be better served by photography, charts, text, illustrations, tables or diagrams.
 
 ## Establish the task
 
 Identify the operation: **create**, **edit**, or **audit**. Audit means report findings without changing the presentation; an explicit request to fix a problem is edit with the repair direction.
 
-Resolve these inputs from the request and existing context: source or topic, target slides, chosen directions, presentation audience/use, and any reference/template. Inspect an available source immediately. Ask only for missing information that materially changes the result.
+Resolve the brief from the request and existing context: intended outcome, audience and prior knowledge, source material, delivery setting, duration or slide count, language, reference/brand/style, required content and output format. These are independent choices: a research talk can be highly visual; a product deck can be a detailed reading document. Inspect supplied material before asking for information it already contains. Ask only for gaps that materially change the work, preferably in a compact group.
+
+Use a supplied topic, outline, article, Word/PDF document, data, images, screenshots or existing deck as inputs. Distinguish supported facts from proposals and examples. When the brief is sufficient, continue to a complete deliverable without requiring another outline-approval step unless the user requested staged collaboration.
+
+Honor the requested output. Deliver editable PPTX for a PPTX request; a browser presentation, PDF or image preview is an additional or alternate format only when requested. Verify the backend's capabilities before promising interactivity, animations or conversion fidelity.
 
 Honor explicit choices. “Add icons to slides 5–8, leave the wording alone” already selects edit, icons, and slides 5–8; proceed without displaying a menu. For a narrowly requested repair, preserve the remaining work.
 
-If the user wants help selecting an improvement direction, offer this short menu in their language, allowing multiple choices or free text:
+## Create a complete presentation
+
+For creation or substantial rebuilding, read [references/generation.md](references/generation.md). It covers source synthesis, storyline, per-slide planning, visual system, asset placement and speaker notes. When the purpose needs specialized treatment, consult the matching section of [references/scenarios.md](references/scenarios.md); these are adaptable approaches, not an exhaustive menu or mandatory outlines.
+
+Derive the structure from what the audience needs to understand, decide, learn or experience. Plan slide roles and visual rhythm before producing pages. Adapt or invent a suitable composition rather than applying a prior example throughout the deck. Respect an explicit total slide count, including any cover and closing pages.
+
+Choose the modules needed for the task. Complete creation ordinarily needs content, layout and style, plus charts, images or other capabilities where the material benefits from them. Users do not need to select technical modules before asking for a new deck.
+
+## Improve selected aspects
+
+If the user wants help selecting an improvement direction, offer this short menu in their language, allowing multiple choices or free text. The menu describes optional capabilities, not the full range of presentation scenarios:
 
 1. Content and storyline — 内容与逻辑
 2. Layout and relationships — 版式与构图
@@ -28,7 +44,7 @@ If the user wants help selecting an improvement direction, offer this short menu
 
 Read the catalog at [references/directions.json](references/directions.json) for canonical IDs and the corresponding guides. `scripts/plan.py --list` displays the same catalog. These are conversation choices, not a required graphical interface. Use a question tool when available and ordinary conversation otherwise.
 
-For an unspecified new presentation, collect the topic, audience, and source material; content, layout, and style are a reasonable starting combination. For “improve everything,” state the improvements the source actually needs rather than adding every visual category by default.
+For “improve everything,” diagnose what the source needs rather than inserting every visual category. A free-text requirement outside the menu remains valid; use its intent to choose the work and consult relevant guides.
 
 ## Execute selected directions
 
@@ -45,6 +61,8 @@ Read **only the selected guides**:
 Combine compatible directions in one pass. Establish content and facts first when selected, choose visual representations next, then place and style them. An icons-only request does not authorize rewriting the argument or replacing the whole template. A layout-only request preserves wording unless the user also selects content editing.
 
 For mechanical file editing or missing tooling, consult [references/backends.md](references/backends.md). The bundled scripts inspect decks and record explicit selections; they do not autonomously generate or aesthetically evaluate a finished presentation.
+
+Resolve bundled script and reference paths from this skill's installed location, not from the user's project working directory. Installation and standalone usage are documented in [README.md](README.md); read that only when setup help is needed.
 
 ## Verify and deliver
 

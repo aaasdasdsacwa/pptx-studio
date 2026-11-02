@@ -1,10 +1,10 @@
 # Content and storyline
 
-Use when content is selected or a new presentation needs its argument developed.
+Use when content is selected or a new presentation needs its material organized. For whole-deck creation, start with [generation.md](generation.md); use [scenarios.md](scenarios.md) for purpose-specific structure and evidence.
 
 Establish what the audience should understand or decide. Separate live presentation from independent reading: move supporting detail to notes/appendices for a spoken deck; keep the context needed for a reading deck.
 
-For each substantive slide, identify its question, main claim, supporting evidence, and logical relationship. A claim-based title is useful when the evidence supports it; keep simple topic labels when the slide's purpose is navigation or reference.
+Give each page a clear role: explaining a concept, teaching a skill, showing evidence, advancing a story, supporting a decision or another purpose the task requires. For an analytical page, identify the question, claim and evidence. A story scene, exercise, artwork or reference page may need a different structure. Choose a claim-based title when supported; retain useful topic labels and allow visual pages without a redundant title.
 
 Preserve quoted wording, numerical values, technical qualifications, and evidence boundaries. Mechanism diagrams explain a design; screenshots show an interface; measured improvement requires comparable measurements. Ask for missing evidence rather than inventing dates, metrics, customers, or screenshots.
 

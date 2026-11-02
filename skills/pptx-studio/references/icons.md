@@ -6,18 +6,18 @@ For each icon, identify the **object, action, and state** expressed by the nearb
 
 Useful distinctions, not a universal vocabulary:
 
-- Model: a neural/brain or model motif; agent: an actor using tools. Avoid one generic robot for both when the distinction matters.
-- Memory: records/history/recall; compute: a chip. A chip alone rarely explains conversational memory.
-- Review: checklist plus inspection; source tracing: a document plus a locator/reference.
-- Customer support: headset/dialogue; coding: code/window; retrieval: search plus the relevant information object.
-- Supply-chain risk: package/dependency with a risk state; auditing: logs and time; interception: a controlled gate/stop action.
-- Parcel: land boundaries/grid; administrative region: region divisions/location. Use separate motifs when both appear together.
-- Restricted query: database plus a lock/constraint. Broken document linkage: documents with an interrupted connection, rather than a fully connected success graph.
-- Human confirmation, handoff to a person, and cooperation between agents are separate actions.
+- A calendar communicates a date or schedule; a clock communicates time or duration. Select according to the nearby wording.
+- A graduation cap can indicate education, while a worked example or experiment may need a book, apparatus or the actual figure instead.
+- A leaf can suggest nature; it does not substantiate a sustainability result. Keep supporting data when the slide makes a measured claim.
+- A magnifying glass can mean search, inspection or zoom. Pair it with the relevant object or a short label when the distinction matters.
+- A person, group and handoff represent different responsibilities; show the intended role or transition.
+- A check, warning and blocked state convey different outcomes. Bind the state marker to the object being discussed.
 
 Review negative and uncertain states explicitly. Pair shape and text; color alone is insufficient to explain blocked, failed, missing, or uncertain behavior.
 
 ## Choose and construct
+
+For asset sources, search terms, semantic correction examples and style choices, read [icon-sourcing.md](icon-sourcing.md) when finding or replacing icons. Reuse already suitable assets for a local spacing-only repair.
 
 Prefer an already installed, appropriately licensed icon family or the user's approved assets. Match stroke weight, optical size, corner treatment, and palette. Vary silhouettes and use restrained duotone fills or small contextual combinations where they improve recognition. Simplify details as icons get smaller.
 

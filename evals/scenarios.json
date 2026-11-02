@@ -2,13 +2,199 @@
   "schema_version": 1,
   "status": "manual_scenarios_not_model_evaluated",
   "scenarios": [
-    {"id":"explicit-icons","request":"第 1–16 页多用图标，其他页不动，正文不改。","expected_operation":"edit","expected_directions":["icons"],"acceptance":["Proceeds without requiring a redundant direction menu","Preserves wording and selected scope","Reviews object/action/state semantics","Reports actual rendering status"]},
-    {"id":"open-choice","request":"我想完善这个 PPT，先帮我选方向。","expected_operation":"edit","acceptance":["Inspects available source","Offers concise combinable directions","Does not arbitrarily select every direction"]},
-    {"id":"multi-direction","request":"选图标和版式，优化第三页的审核流程。","expected_operation":"edit","expected_directions":["icons","layout"],"acceptance":["Reads selected guides only, plus shared verification","Preserves actual flow and facts","Avoids unrelated global restyling"]},
-    {"id":"create","request":"根据所给资料，给新人做 10 分钟的系统入门 PPT。","expected_operation":"create","acceptance":["Uses supplied evidence","Builds an audience-appropriate storyline","Produces editable output using an available backend","Does not invent metrics"]},
-    {"id":"read-only","request":"只检查第一页和第二页，不要修改。","expected_operation":"audit","acceptance":["Source hash stays unchanged","Findings locate pages/objects","Does not run an automatic repair"]},
-    {"id":"table-overlap","request":"第二页表格文字重叠，第一页已确认，别动。","expected_operation":"edit","expected_directions":["repair"],"acceptance":["Finds the authoritative content layer","Preserves page 1","Keeps editable table content once","Verifies the actual final file when a renderer is available"]},
-    {"id":"no-renderer","request":"图标优化完成后，确认是不是完全没有排版问题。","acceptance":["Does not equate structural preflight with visual verification","Clearly states unavailable native rendering","Finishes authorized independent work"]},
-    {"id":"missing-official-assets","request":"加上官方产品 Logo。","expected_directions":["images"],"acceptance":["Uses verified brand assets when available","Does not call a custom drawing an official logo","Retains attribution and explicit gaps"]}
+    {
+      "id": "explicit-icons",
+      "request": "第 1–16 页多用图标，其他页不动，正文不改。",
+      "expected_operation": "edit",
+      "expected_directions": [
+        "icons"
+      ],
+      "acceptance": [
+        "Proceeds without requiring a redundant direction menu",
+        "Preserves wording and selected scope",
+        "Reviews object/action/state semantics",
+        "Reports actual rendering status"
+      ]
+    },
+    {
+      "id": "open-choice",
+      "request": "我想完善这个 PPT，先帮我选方向。",
+      "expected_operation": "edit",
+      "acceptance": [
+        "Inspects available source",
+        "Offers concise combinable directions",
+        "Does not arbitrarily select every direction"
+      ]
+    },
+    {
+      "id": "multi-direction",
+      "request": "选图标和版式，优化第三页的审核流程。",
+      "expected_operation": "edit",
+      "expected_directions": [
+        "icons",
+        "layout"
+      ],
+      "acceptance": [
+        "Reads selected guides only, plus shared verification",
+        "Preserves actual flow and facts",
+        "Avoids unrelated global restyling"
+      ]
+    },
+    {
+      "id": "create",
+      "request": "根据所给资料，给新人做 10 分钟的系统入门 PPT。",
+      "expected_operation": "create",
+      "acceptance": [
+        "Uses supplied evidence",
+        "Builds an audience-appropriate storyline",
+        "Produces editable output using an available backend",
+        "Does not invent metrics"
+      ]
+    },
+    {
+      "id": "read-only",
+      "request": "只检查第一页和第二页，不要修改。",
+      "expected_operation": "audit",
+      "acceptance": [
+        "Source hash stays unchanged",
+        "Findings locate pages/objects",
+        "Does not run an automatic repair"
+      ]
+    },
+    {
+      "id": "table-overlap",
+      "request": "第二页表格文字重叠，第一页已确认，别动。",
+      "expected_operation": "edit",
+      "expected_directions": [
+        "repair"
+      ],
+      "acceptance": [
+        "Finds the authoritative content layer",
+        "Preserves page 1",
+        "Keeps editable table content once",
+        "Verifies the actual final file when a renderer is available"
+      ]
+    },
+    {
+      "id": "no-renderer",
+      "request": "图标优化完成后，确认是不是完全没有排版问题。",
+      "acceptance": [
+        "Does not equate structural preflight with visual verification",
+        "Clearly states unavailable native rendering",
+        "Finishes authorized independent work"
+      ]
+    },
+    {
+      "id": "missing-official-assets",
+      "request": "加上官方产品 Logo。",
+      "expected_directions": [
+        "images"
+      ],
+      "acceptance": [
+        "Uses verified brand assets when available",
+        "Does not call a custom drawing an official logo",
+        "Retains attribution and explicit gaps"
+      ]
+    },
+    {
+      "id": "management-decision",
+      "request": "根据提供的项目资料做10页管理层决策汇报，沿用附件品牌。",
+      "expected_operation": "create",
+      "acceptance": [
+        "Organizes around the decision and evidence rather than a universal company introduction",
+        "Keeps 10 total slides including any cover",
+        "Honors supplied branding and supports claims with supplied materials"
+      ]
+    },
+    {
+      "id": "classroom-course",
+      "request": "依据教材做高中光合作用课件，配示意图与课堂练习。",
+      "expected_operation": "create",
+      "acceptance": [
+        "Uses a learning progression with examples and practice",
+        "Preserves correct answers and scientific qualifications",
+        "Does not impose a sales narrative or sparse keynote density"
+      ]
+    },
+    {
+      "id": "research-defense",
+      "request": "用论文和实验图表做15分钟答辩，保留方法、局限和引用。",
+      "expected_operation": "create",
+      "acceptance": [
+        "Distinguishes actual results from proposals",
+        "Retains citations, conditions and limitations",
+        "Uses duration for pacing without inventing a rigid slides-per-minute formula"
+      ]
+    },
+    {
+      "id": "product-procurement",
+      "request": "依据设备手册，为采购团队制作适用场景、操作和维护介绍。",
+      "expected_operation": "create",
+      "acceptance": [
+        "Uses documented specifications and authentic images",
+        "Organizes around the buyer questions",
+        "Does not invent performance claims or endorsements"
+      ]
+    },
+    {
+      "id": "data-reading",
+      "request": "根据月度数据做可独立阅读的分析，图表和表格可编辑。",
+      "expected_operation": "create",
+      "acceptance": [
+        "Preserves data, units, periods and caveats",
+        "Keeps enough context for independent reading",
+        "Produces editable native evidence when supported"
+      ]
+    },
+    {
+      "id": "creative-portfolio",
+      "request": "把作品和项目说明做成编辑设计风格作品集，突出实际贡献。",
+      "expected_operation": "create",
+      "acceptance": [
+        "Lets actual work drive the visual sequence",
+        "Retains image proportions and attribution",
+        "Avoids a default technical architecture or corporate-report outline"
+      ]
+    },
+    {
+      "id": "photo-story",
+      "request": "根据照片和采访文字做社区记忆分享，暖色、摄影为主、少字。",
+      "expected_operation": "create",
+      "acceptance": [
+        "Uses supplied photos as the main visual material",
+        "Retains actual names and dates",
+        "Does not require icons, invented metrics or a business argument on every slide"
+      ]
+    },
+    {
+      "id": "unlisted-mixed-purpose",
+      "request": "向博物馆的亲子家庭介绍一件科学展品，兼顾准确与探索感。",
+      "expected_operation": "create",
+      "acceptance": [
+        "Accepts a purpose outside any fixed menu",
+        "Combines accurate explanation, teaching and storytelling",
+        "Uses a style suited to the request rather than topic stereotypes"
+      ]
+    },
+    {
+      "id": "custom-brand-style",
+      "request": "做一份黑白摄影风的年度业务回顾，保留品牌颜色和附件数据。",
+      "expected_operation": "create",
+      "acceptance": [
+        "Treats topic and visual style as independent",
+        "Honors custom brand colors",
+        "Preserves evidence accuracy and chart legibility"
+      ]
+    },
+    {
+      "id": "speaker-support",
+      "request": "根据这份讲座资料制作演示稿，并补充每页的讲述要点和转场。",
+      "expected_operation": "create",
+      "acceptance": [
+        "Adds complementary speaker notes without simply repeating slide text",
+        "Keeps unsupported stage interactions and timing out",
+        "Does not silently add autoplay or an HTML presenter runtime"
+      ]
+    }
   ]
 }
