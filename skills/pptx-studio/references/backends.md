@@ -29,4 +29,14 @@ Use available connectors or search/image tools for retrieval, and generation too
 
 ## Optional Python backend
 
-If the host permits local dependency installation, a separate virtual environment with `python-pptx` can provide basic deck editing. The repository's `requirements-dev.txt` describes optional validation/demo dependencies. Do not assume the current interpreter has them or silently alter a user's global environment.
+If the host permits local dependency installation and no preferred editor is available, a separate virtual environment with `python-pptx` can provide basic deck editing. For example, create `outputs/.venv` with `python -m venv outputs/.venv`, then use that environment's Python to install `python-pptx`. Use `outputs/.venv/Scripts/python.exe` on Windows or `outputs/.venv/bin/python` on macOS/Linux. Follow the host's own tool requirements when it supplies an authoring workflow.
+
+The bundled planning and inspection helpers need no installation. `python-pptx`, PptxGenJS and renderers are optional host tools, not dependencies shipped with this skill. Check their actual installed APIs; do not assume SVG import, editable vectors, animation round-tripping or direct PPTX rendering are supported merely because basic editing works. Consult [python-pptx documentation](https://python-pptx.readthedocs.io/en/latest/) or [PptxGenJS documentation](https://gitbrent.github.io/PptxGenJS/) when using those backends.
+
+## Minimum working path
+
+Identify the source, operation, selected pages and final output path. Inspect the source and record the text/objects that scope requires preserving. Confirm an editing backend and separately a renderer before promising their results. Read the selected direction guides, make the scoped changes into a new file, run the bundled preflight, and inspect a direct rendering of that final file when available.
+
+For a new deck, use supplied source material and an available font containing the required characters. For a scoped edit, retain the source dimensions and reference typography. Record the actual backend and renderer in verification evidence, including any rasterized icons or unsupported features. A renderer supplied by an editing library should be named explicitly; it is not proof of identical display in PowerPoint or WPS.
+
+If editing is unavailable, complete an audit or concrete change plan and state that no edited PPTX was produced. If editing works but rendering does not, deliver the editable output with visual verification pending. A preview image alone does not satisfy a request for an editable presentation.

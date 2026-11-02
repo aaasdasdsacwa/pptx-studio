@@ -1,0 +1,111 @@
+{
+  "schema_version": 1,
+  "date": "2026-10-28",
+  "status": "agent_executed_examples_not_independent_eval",
+  "review_kind": "agent_self_review",
+  "execution": "exported synthetic source PPTX, imported that file, edited selected slide objects, exported final PPTX",
+  "scope": "page 1 icons; page 2 layout; page 3 repair",
+  "backend": "Artifact Tool 2.8.106",
+  "source": {
+    "file": "before.pptx",
+    "sha256": "200d5c83b180c368ce50ab7ec1a8998d9c88c700ddb0060585910b034c41c51a",
+    "summary": {
+      "slides_total": 3,
+      "slides_inspected": 3,
+      "error_count": 1,
+      "warning_count": 0,
+      "info_count": 0
+    },
+    "expected_fault": "one duplicate text layer on page 3"
+  },
+  "output": {
+    "file": "after.pptx",
+    "sha256": "0da7e8f8240d0fd606c2610a1857c25b54328d72a1b7412be356a6cd69f34540",
+    "summary": {
+      "slides_total": 3,
+      "slides_inspected": 3,
+      "error_count": 0,
+      "warning_count": 0,
+      "info_count": 0
+    }
+  },
+  "checks": [
+    {
+      "check": "source_text_preserved",
+      "page": 1,
+      "passed": true
+    },
+    {
+      "check": "source_text_preserved",
+      "page": 2,
+      "passed": true
+    },
+    {
+      "check": "all_native_table_cell_text_preserved",
+      "page": 3,
+      "passed": true
+    },
+    {
+      "check": "native_table_retained",
+      "page": 3,
+      "passed": true
+    },
+    {
+      "check": "confirmed_duplicate_overlay_removed",
+      "page": 3,
+      "passed": true
+    },
+    {
+      "check": "final_file_import_and_font_policy",
+      "passed": true
+    }
+  ],
+  "rendering": {
+    "status": "rendered_and_agent_reviewed",
+    "renderer": "Artifact Tool 2.8.106",
+    "method": "reimport the saved source and final PPTX; export each slide to PNG",
+    "reviewed_previews": [
+      "before-1.png",
+      "before-2.png",
+      "before-3.png",
+      "after-1.png",
+      "after-2.png",
+      "after-3.png"
+    ],
+    "powerpoint_wps_libreoffice_verified": false
+  },
+  "cases": [
+    {
+      "id": "icons",
+      "page": 1,
+      "request": "只替换三个图标，保留文字和位置。",
+      "result": "passed_agent_self_review"
+    },
+    {
+      "id": "timeline",
+      "page": 2,
+      "request": "保留四个阶段和说明，改为时间轴，不添加日期。",
+      "result": "passed_agent_self_review"
+    },
+    {
+      "id": "table-repair",
+      "page": 3,
+      "request": "删除确认冗余的重叠文本框，保留原生表格与虚线。",
+      "result": "passed_agent_self_review"
+    }
+  ],
+  "limitations": [
+    "Combined demonstration, not separate blind model trials.",
+    "PNG icons are replaceable images, not editable path groups; SVG sources included.",
+    "No PowerPoint, WPS or LibreOffice native render validation.",
+    "Does not evaluate every direction or client."
+  ],
+  "preview_sha256": {
+    "after-1.png": "21ba6d7ec12736c3b4b720e040809bcbca0afcb8503dca39b5cf76cf1a7ad50c",
+    "after-2.png": "3bf979bc14a7875fd4a9bb84a928b175a68cdee6e1ecc75425ff57a7900ec1a6",
+    "after-3.png": "31d2ad7ed5aa026687ada7f5e9ff2131ecfc4624588c5abe2a81eacc3d585eaf",
+    "before-1.png": "9838d72227adf1dd972d007d686ba9c730a6a0abdbbcd096a1fbe92f93111c4a",
+    "before-2.png": "62bea0d6a9aba1c781cc6d47464ff6f35de7e9ff793e0f5c9c56da6db5786d28",
+    "before-3.png": "ffe01cc1bac67125f75ae7dfb035e541640a9128c51ec729fd8600329d11cd4c"
+  }
+}

@@ -19,6 +19,11 @@ def shape(ident=2,text='Clean',x=1,y=1,w=3,h=.5,rotation=0):
     return f'''<p:sp><p:nvSpPr><p:cNvPr id="{ident}" name="Shape {ident}"/><p:cNvSpPr/><p:nvPr/></p:nvSpPr><p:spPr><a:xfrm rot="{rotation}"><a:off x="{round(x*EMU)}" y="{round(y*EMU)}"/><a:ext cx="{round(w*EMU)}" cy="{round(h*EMU)}"/></a:xfrm></p:spPr><p:txBody><a:bodyPr/><a:lstStyle/>{paragraphs(text)}</p:txBody></p:sp>'''
 
 
+def picture(ident=2, rid='image', linked=False):
+    attribute = 'link' if linked else 'embed'
+    return f'''<p:pic><p:nvPicPr><p:cNvPr id="{ident}" name="Picture {ident}"/><p:cNvPicPr/><p:nvPr/></p:nvPicPr><p:blipFill><a:blip r:{attribute}="{escape(rid, quote=True)}"/><a:stretch><a:fillRect/></a:stretch></p:blipFill><p:spPr><a:xfrm><a:off x="{EMU}" y="{EMU}"/><a:ext cx="{EMU}" cy="{EMU}"/></a:xfrm></p:spPr></p:pic>'''
+
+
 def table(ident=2,text=('现象：复现条件','预防：检查输入'),x=2,y=2,w=3,h=1.1):
     return f'''<p:graphicFrame><p:nvGraphicFramePr><p:cNvPr id="{ident}" name="Comparison table"/><p:cNvGraphicFramePr/><p:nvPr/></p:nvGraphicFramePr><p:xfrm><a:off x="{round(x*EMU)}" y="{round(y*EMU)}"/><a:ext cx="{round(w*EMU)}" cy="{round(h*EMU)}"/></p:xfrm><a:graphic><a:graphicData uri="{A}/table"><a:tbl><a:tblPr/><a:tblGrid><a:gridCol w="{round(w*EMU)}"/></a:tblGrid><a:tr h="{round(h*EMU)}"><a:tc><a:txBody><a:bodyPr/><a:lstStyle/>{paragraphs(text)}</a:txBody><a:tcPr marL="91440" marR="91440" marT="45720" marB="45720"/></a:tc></a:tr></a:tbl></a:graphicData></a:graphic></p:graphicFrame>'''
 

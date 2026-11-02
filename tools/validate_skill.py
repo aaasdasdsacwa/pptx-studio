@@ -47,7 +47,7 @@ def main() -> int:
         if not isinstance(description,str) or not 1<=len(description.strip())<=1024 or '<' in description or '>' in description:
             errors.append('Description must be a nonempty string up to 1024 characters')
         if '[TODO:' in text:errors.append('Unfinished scaffold in SKILL.md')
-        for source in [SKILL/'SKILL.md',*list((SKILL/'references').glob('*.md'))]:
+        for source in SKILL.rglob('*.md'):
             for target in re.findall(r'\[[^\]]*\]\(([^)]+)\)',source.read_text(encoding='utf-8-sig')):
                 if re.match(r'[a-z]+://',target) or target.startswith('#'):continue
                 resolved=(source.parent/target.split('#',1)[0]).resolve()

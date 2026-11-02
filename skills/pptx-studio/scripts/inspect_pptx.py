@@ -196,6 +196,30 @@ def intersection_ratio(a: Obj, b: Obj) -> float:
     return cross / area
 
 
+def relationship_uses(tree: ET.Element) -> dict[str, set[str]]:
+    """Collect referenced relationship IDs and their nearest slide object IDs."""
+    uses: dict[str, set[str]] = {}
+    relationship_attributes = {'{' + NS['r'] + '}' + key for key in ('id', 'embed', 'link')}
+    object_tags = {'{' + NS['p'] + '}' + key
+                   for key in ('sp', 'pic', 'cxnSp', 'graphicFrame', 'grpSp')}
+
+    def walk(node: ET.Element, owner: str | None = None) -> None:
+        if node.tag in object_tags:
+            nv = node.find('.//p:cNvPr', NS)
+            if nv is not None:
+                owner = nv.get('id')
+        for attribute, rid in node.attrib.items():
+            if attribute in relationship_attributes:
+                owners = uses.setdefault(rid, set())
+                if owner is not None:
+                    owners.add(owner)
+        for child in node:
+            walk(child, owner)
+
+    walk(tree)
+    return uses
+
+
 def inspect(path: Path, selection: str | None = None) -> dict:
     findings: list[dict] = []
 
@@ -237,6 +261,7 @@ def inspect(path: Path, selection: str | None = None) -> dict:
         width, height = integer(size, 'cx'), integer(size, 'cy')
         if width <= 0 or height <= 0:
             raise InspectionError('Missing or invalid slide dimensions.')
+        relationship_ids: dict[str, set[str] | None] = {}
         for name in names:
             if not name.endswith('.rels'):
                 continue
@@ -244,8 +269,10 @@ def inspect(path: Path, selection: str | None = None) -> dict:
                 relationships = xml(z, name)
             except InspectionError as exc:
                 add('invalid_relationship_xml', 'error', str(exc))
+                relationship_ids[relationship_owner(name)] = None
                 continue
             owner = relationship_owner(name)
+            relationship_ids[owner] = {rel.get('Id', '') for rel in relationships}
             for rel in relationships:
                 if rel.get('TargetMode') == 'External':
                     continue
@@ -259,6 +286,14 @@ def inspect(path: Path, selection: str | None = None) -> dict:
         for page in pages:
             part = slide_parts[page - 1]
             tree = xml(z, part)
+            available_ids = relationship_ids.get(part, set())
+            # An invalid .rels already has an error; avoid redundant missing-ID claims.
+            if available_ids is not None:
+                for rid, owners in relationship_uses(tree).items():
+                    if not rid or rid not in available_ids:
+                        add('missing_relationship_id', 'error',
+                            f'{part} references undefined relationship ID {rid!r}.',
+                            page, sorted(owners))
             counts: dict[str, int] = {}
             for nv in tree.findall('.//p:cNvPr', NS):
                 key = nv.get('id', '?')
